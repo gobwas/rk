@@ -2,9 +2,10 @@ package rk
 
 const prime = 16777619
 
-func Hash(s string, x uint32) (h uint32) {
+func Hash(s string, p uint32) (h uint32) {
 	for i := 0; i < len(s); i++ {
-		h = h*x + uint32(s[i])
+		h *= p
+		h ^= uint32(s[i])
 	}
 	return h
 }
